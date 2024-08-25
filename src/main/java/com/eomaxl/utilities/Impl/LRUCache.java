@@ -5,18 +5,18 @@ import java.util.Map;
 import com.eomaxl.utilities.Cache;
 import com.eomaxl.entity.CacheEntity;
 
-public class LRULRUCacheImpl<K,V> implements Cache<K, V> {
+public class LRUCache<K,V> implements Cache<K, V> {
     private final int capacity;
     private final Map<K,V> cacheMap;
 
-    public LRULRUCacheImpl(int capacity){
+    public LRUCache(int capacity){
         this.capacity = capacity;
         this.cacheMap = new LinkedHashMap<K,V>(capacity, 0.75f, true) {
             private static final long serialVersionUID = 1L;
 
             @Override
             protected boolean removeEldestEntry(Map.Entry<K,V> eldest) {
-                return size() > LRULRUCacheImpl.this.capacity;
+                return size() > LRUCache.this.capacity;
             }
         };
     }

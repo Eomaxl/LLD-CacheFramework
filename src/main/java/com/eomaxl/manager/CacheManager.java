@@ -1,6 +1,7 @@
 package com.eomaxl.manager;
 
 import com.eomaxl.utilities.Cache;
+import com.eomaxl.utilities.Impl.LRUCache;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -23,7 +24,7 @@ public class CacheManager {
         if (caches.containsKey(cacheName)){
             throw new RuntimeException("Cache already exists: " + cacheName);
         }
-        Cache<K,V> cache = new Cache<>(size);
+        Cache<K,V> cache = new LRUCache<>(size);
         caches.put(cacheName, cache);
         return cache;
     }

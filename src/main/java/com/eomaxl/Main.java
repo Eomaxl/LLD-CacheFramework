@@ -2,6 +2,11 @@ package com.eomaxl;
 
 import com.eomaxl.entity.CacheEntity;
 import com.eomaxl.manager.CacheManager;
+import com.eomaxl.utilities.Cache;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
